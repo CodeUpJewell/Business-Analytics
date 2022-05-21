@@ -1,0 +1,55 @@
+/*Query 1 - Most heavy metal albums made ? */
+SELECT Art.Name , count(Alb.AlbumId) AS Albums
+FROM Artist Art
+JOIN Album Alb
+ON Art.ArtistId = Alb.ArtistId
+JOIN Track t
+ON Alb.ArtistId= t.TrackId
+JOIN Genre g
+ON t.GenreId = g.GenreId
+WHERE t.GenreId = 1
+GROUP BY Art.Name
+ORDER BY Albums DESC
+LIMIT 5;
+
+/* Query 2 - How many song do each artist have? */
+SELECT art.ArtistId, art.Name, COUNT(t.TrackId) AS songs
+FROM Artist art
+JOIN Album alb
+ON art.ArtistId = alb.ArtistId
+JOIN Track t
+ON alb.AlbumId = t.AlbumId
+GROUP BY art.ArtistId
+ORDER BY songs desc
+LIMIT 10;
+
+/*Query 3 - How many customers purchased Iron Maiden in each country.  */
+SELECT c.Country, COUNT(c.Country) AS Purchases
+FROM Customer c
+JOIN Invoice i
+ON c.CustomerId = i.CustomerId
+JOIN InvoiceLine il
+ON i.InvoiceId = il.InvoiceId
+JOIN Track t
+ON il.TrackId = t.TrackId
+JOIN Album alb
+ON t.AlbumId = alb.AlbumId
+JOIN Artist art
+ON alb.ArtistId = art.ArtistId
+WHERE art.Name = 'Iron Maiden'
+GROUP BY c.Country
+ORDER BY Purchases DESC
+LIMIT 10;
+
+/* Query 4 - Which genre has the highest grossing? .*/
+SELECT g.Name, SUM(Invl.UnitPrice * Invl.Quantity) as GenreGross
+FROM Genre g
+JOIN Track t
+ON T.GenreId = G.GenreId
+JOIN InvoiceLine invl
+ON T.TrackId = Invl.TrackId
+JOIN Invoice inv
+ON Inv.InvoiceId=Invl.InvoiceId
+GROUP BY g.Name
+ORDER BY GenreGross DESC
+LIMIT 10;
