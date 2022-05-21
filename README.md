@@ -1,6 +1,6 @@
 # Business-Analytics
 
-In this program, you'll learn foundational data skills that apply across functions and industries. Learn data analysis skills and tools that will help you throughout your career, whether you’re in engineering, sales, marketing, operations, etc. Learn to use Excel, SQL and Tableau to manipulate, analyze and visualize data with the end goal of making better, data-informed decisions
+In this program, you'll learn foundational data skills that apply across functions and industries. We will learn data analysis skills and tools that will help you throughout your career, whether you’re in engineering, sales, marketing, operations, etc. We will learn to use Excel, SQL and Tableau to manipulate, analyze and visualize data with the end goal of making better, data-informed decisions
 
 
 # Why Business Analyics?
